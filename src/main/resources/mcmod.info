@@ -1,0 +1,16 @@
+[
+{
+  "modid": "hxcperipherals",
+  "name": "HxCPeripherals",
+  "description": "Adds peripherals for ComputerCraft(CC).",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["wiggle1000"],
+  "credits": "Me: making this.   SquidDev: helping me set up CC API.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [ComputerCraft]
+}
+]
