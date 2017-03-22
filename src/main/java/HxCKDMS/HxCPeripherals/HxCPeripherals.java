@@ -11,10 +11,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import dan200.computercraft.api.ComputerCraftAPI;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -24,6 +21,8 @@ public class HxCPeripherals
 
     public static final String MODID = "hxcperipherals";
     public static final String VERSION = "1.0";
+
+    public static Config configInstance;
 
     public static final CreativeTabs tabHxCPeripherals = new CreativeTabs("tabHxCPeripherals") {
         @Override
@@ -41,6 +40,7 @@ public class HxCPeripherals
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         GameRegistry.registerBlock(smartLight, "smartLight");
+        configInstance = new Config(event.getSuggestedConfigurationFile());
     }
 
     @EventHandler
@@ -49,17 +49,19 @@ public class HxCPeripherals
         GameRegistry.registerTileEntity(TileEntitySmartLight.class, "tileSmartLight");
         ComputerCraftAPI.registerPeripheralProvider(smartLight);
         proxy.registerRenders();
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(smartLight,1),
-                "aaa",
-                "RGB",
-                "ded",
-                'a', "paneGlass",
-                'b', "glowstone",
-                'd', "ingotIron",
-                'e', "blockRedstone",
-                'R', "dyeRed",
-                'G', "dyeGreen",
-                'B', "dyeBlue"
-        ));
+        if(configInstance.enableSmartLight) {
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(smartLight, 1),
+                    "aaa",
+                    "RGB",
+                    "ded",
+                    'a', "paneGlass",
+                    'b', "glowstone",
+                    'd', "ingotIron",
+                    'e', "blockRedstone",
+                    'R', "dyeRed",
+                    'G', "dyeGreen",
+                    'B', "dyeBlue"
+            ));
+        }
     }
 }
