@@ -37,7 +37,7 @@ repositories {
 	}
 }
 dependencies {
-	compile "ComputerCraft:ComputerCraft:1.75"
+	compile "http://addons-origin.cursecdn.com/files/2269/339/ComputerCraft1.75.jar"
 	compile "codechicken:CodeChickenLib:1.7.10-1.1.1.99:dev"
 	compile "codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev"
 }
