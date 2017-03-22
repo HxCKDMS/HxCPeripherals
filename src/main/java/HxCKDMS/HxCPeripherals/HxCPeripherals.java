@@ -51,13 +51,15 @@ public class HxCPeripherals
         proxy.registerRenders();
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(smartLight,1),
                 "aaa",
-                "beb",
-                "cdc",
-                'a', "blockStainedGlass",
-                'b', "blockGlowstone",
-                'c', "blockStone",
+                "RGB",
+                "ded",
+                'a', "paneGlass",
+                'b', "glowstone",
                 'd', "ingotIron",
-                'e', "blockRedstone"
+                'e', "blockRedstone",
+                'R', "dyeRed",
+                'G', "dyeGreen",
+                'B', "dyeBlue"
         ));
     }
 }
