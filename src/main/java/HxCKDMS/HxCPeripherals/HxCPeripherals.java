@@ -54,9 +54,9 @@ public class HxCPeripherals
                 "beb",
                 "cdc",
                 'a', "blockStainedGlass",
-                'b', Blocks.redstone_lamp,
+                'b', "blockGlowstone",
                 'c', "blockStone",
-                'd', GameRegistry.findItemStack("ComputerCraft", "CC-Cable", 1),
+                'd', "ingotIron",
                 'e', "blockRedstone"
         ));
     }
