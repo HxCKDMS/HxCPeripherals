@@ -4,11 +4,11 @@
   "name": "HxCPeripherals",
   "description": "Adds peripherals for ComputerCraft(CC).",
   "version": "${version}",
-  "mcversion": "${mcversion}",
+  "mcversion": "1.7.10",
   "url": "",
   "updateUrl": "",
   "authorList": ["wiggle1000"],
-  "credits": "Me: making this.   SquidDev: helping me set up CC API.",
+  "credits": "Me: making this.   SquidDev: helping set up CC API.   HxCKDMS: Moral support.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": [ComputerCraft]
