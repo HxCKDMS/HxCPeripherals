@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 public class BlockPeripheralBase extends Block implements IPeripheralProvider {
     protected BlockPeripheralBase() {
         super(Material.redstoneLight);
+        this.setHardness(0.3f);
         this.setCreativeTab(HxCPeripherals.tabHxCPeripherals);
     }
 
