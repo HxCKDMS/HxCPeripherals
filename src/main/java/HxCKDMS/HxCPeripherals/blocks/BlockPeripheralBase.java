@@ -7,11 +7,8 @@ import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.peripheral.IPeripheralProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Util;
 import net.minecraft.world.World;
-import sun.plugin2.util.ColorUtil;
 
 public class BlockPeripheralBase extends Block implements IPeripheralProvider {
     protected BlockPeripheralBase() {
