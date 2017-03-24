@@ -52,13 +52,13 @@ public class TileEntitySmartLight extends TileEntity implements IPeripheral{
                     throw new LuaException("Bad Argument #3 (expected number 0-255)");
                 }
                 if(!(arguments[3] instanceof Double)){
-                    throw new LuaException("Bad Argument #4 (expected number 0-1)");
+                    throw new LuaException("Bad Argument #4 (expected number 0-255)");
                 }
             }
-            this.LightLevel = Math.min(Math.max((int)(Double.parseDouble(arguments[3].toString())*14), 0), 14);
-            this.Red = Double.parseDouble(arguments[0].toString());
-            this.Green = Double.parseDouble(arguments[1].toString());
-            this.Blue = Double.parseDouble(arguments[2].toString());
+            this.LightLevel = Math.min(Math.max((int)((Double.parseDouble(arguments[3].toString())/255)*14), 0), 14);
+            this.Red = Math.min(Math.max(Double.parseDouble(arguments[0].toString())/255,0),255);
+            this.Green = Math.min(Math.max(Double.parseDouble(arguments[1].toString())/255,0),255);
+            this.Blue = Math.min(Math.max(Double.parseDouble(arguments[2].toString())/255,0),255);
             //System.out.println(Red + ", " + Green + ", " + Blue);
             dirty = true;
             markDirty();
