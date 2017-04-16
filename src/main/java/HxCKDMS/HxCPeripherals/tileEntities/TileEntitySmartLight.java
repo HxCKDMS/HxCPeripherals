@@ -12,10 +12,12 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntitySmartLight extends TileEntity implements IPeripheral{
 
-    public int LightLevel = 0;
-    public double Red = 0;
-    public double Green = 0;
-    public double Blue = 0;
+    public int LightLevel = 255;
+    public double Red = 255;
+    public double Green = 255;
+    public double Blue = 255;
+    public int FrameColor = 0;
+    public byte Style = 0; // 0: plain, 1: frame
     private boolean dirty = false;
 
     @Override
@@ -59,10 +61,11 @@ public class TileEntitySmartLight extends TileEntity implements IPeripheral{
             this.Red = Math.min(Math.max(Double.parseDouble(arguments[0].toString())/255,0),255);
             this.Green = Math.min(Math.max(Double.parseDouble(arguments[1].toString())/255,0),255);
             this.Blue = Math.min(Math.max(Double.parseDouble(arguments[2].toString())/255,0),255);
-            //System.out.println(Red + ", " + Green + ", " + Blue);
+            //System.out.println(FrameRed + ", " + FrameGreen + ", " + FrameBlue);
             dirty = true;
             markDirty();
             success = true;
+            worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
         }
 
         return new Object[]{success};
@@ -76,6 +79,8 @@ public class TileEntitySmartLight extends TileEntity implements IPeripheral{
         Red = tag.getDouble("red");
         Green = tag.getDouble("green");
         Blue = tag.getDouble("blue");
+        FrameColor = tag.getInteger("fColor");
+        Style = tag.getByte("style");
     }
 
     @Override
@@ -85,6 +90,8 @@ public class TileEntitySmartLight extends TileEntity implements IPeripheral{
         tag.setDouble("red", Red);
         tag.setDouble("green", Green);
         tag.setDouble("blue", Blue);
+        tag.setInteger("fColor", FrameColor);
+        tag.setByte("style", Style);
     }
 
     @Override
@@ -116,7 +123,7 @@ public class TileEntitySmartLight extends TileEntity implements IPeripheral{
     public void updateEntity() {
        // if(dirty) {
        //     dirty = false;
-        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+
        // }
     }
 }

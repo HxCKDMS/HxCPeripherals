@@ -16,7 +16,7 @@ public class BlockPeripheralBase extends Block implements IPeripheralProvider {
         this.setHardness(0.3f);
         this.setCreativeTab(HxCPeripherals.tabHxCPeripherals);
     }
-
+    
     @Override
     public IPeripheral getPeripheral(World world, int x, int y, int z, int side) {
         TileEntity entity = world.getTileEntity(x, y, z);

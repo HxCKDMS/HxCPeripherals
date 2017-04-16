@@ -4,6 +4,8 @@ import HxCKDMS.HxCPeripherals.HxCPeripherals;
 import HxCKDMS.HxCPeripherals.tileEntities.TileEntitySmartLight;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -50,6 +52,23 @@ public class BlockSmartLight extends BlockPeripheralBase implements ITileEntityP
         return light.LightLevel;
     }
 
+    @Override
+    public int getDamageValue(World world, int x, int y, int z) {
+        TileEntity entity = world.getTileEntity(x, y, z);
+        if (entity instanceof TileEntitySmartLight) {
+            return ((TileEntitySmartLight) entity).Style;
+        }
+        return super.getDamageValue(world, x, y, z);
+    }
+
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase placer, ItemStack stack) {
+        TileEntity entity = world.getTileEntity(x, y, z);
+        if (entity instanceof TileEntitySmartLight) {
+            ((TileEntitySmartLight) entity).Style = (byte)(stack.getItemDamage()>0?1:0);
+            ((TileEntitySmartLight) entity).FrameColor = (stack.getItemDamage()-1);
+        }
+    }
 
     @Override
     public boolean hasTileEntity(int metadata) {
